@@ -97,6 +97,7 @@ router.post(
 
 module.exports = router;*/
 
+//ONLY FOR CREATE AND UPDATE PROFILE
 const express = require('express');
 
 const config = require('config');
@@ -194,5 +195,7 @@ router.post(
     }
   }
 );
+
+//OLD CODE FOR GET ALL PROFILES AND PROFILE BY USER ID
 
 module.exports = router;
