@@ -6,7 +6,7 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import './App.css';
 
-// Redux
+//Added comment from my own clone
 
 const App = () => {
   useEffect(() => {});
