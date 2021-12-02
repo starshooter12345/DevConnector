@@ -8,7 +8,7 @@ const Login = () => {
       <br />
       <br />
       <p />
-      Login
+     Login
     </div>
   );
 };
