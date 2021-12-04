@@ -1,6 +1,6 @@
 # DevConnector
 
-This is a MERN stack social media application that includes authentication, profiles and forum posts.
+This is a MERN stack social media application that includes authentication, profiles and forum posts. It includes perfection
 
 1.Clone the project
 
