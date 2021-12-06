@@ -23,8 +23,8 @@ const Register = () =>{
     }
   }
  return(
- <Fragment>
-    <br/><br/><br/>
+ <section className = "container">
+    
     <h1 className="large text-primary">Sign Up</h1>
       <p className="lead"><i class="fas fa-user"></i> Create Your Account</p>
       <form className="form" onSubmit={onSubmit}>
@@ -64,7 +64,7 @@ const Register = () =>{
         Already have an account? <Link to="/login">Sign In</Link>
       </p>
 
-  </Fragment>
+  </section>
  )
  }
 export default Register;

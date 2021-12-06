@@ -1,6 +1,6 @@
 import React, {Fragment, useState} from 'react';
 
-import {Link, Navigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 const Login = () =>{
 
   const [formData, setFormData] = useState({
@@ -20,8 +20,8 @@ const Login = () =>{
     
   }
 
-return( <Fragment>
-    <br/><br/><br/>
+return( <section className="container">
+    
     <h1 className="large text-primary">Sign In</h1>
       <p className="lead"><i class="fas fa-user"></i> Sign Into Your Account</p>
       <form className="form" onSubmit={onSubmit}>
@@ -47,7 +47,8 @@ return( <Fragment>
         Don't have an account? <Link to="/register">Sign Up</Link>
       </p>
 
-  </Fragment>
+  </section>
   )
 }
 export default Login;
+
