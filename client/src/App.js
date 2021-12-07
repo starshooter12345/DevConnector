@@ -4,6 +4,11 @@ import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+
+//Redux
+import {Provider} from 'react-redux';
+import store from './store';
+
 import './App.css';
 
 //Added comment from my own clone
@@ -11,6 +16,7 @@ import './App.css';
 const App = () => {
   useEffect(() => {});
   return (
+    <Provider store={store}>
     <Router>
       <Navbar />
 
@@ -20,6 +26,7 @@ const App = () => {
         <Route path='login' element={<Login />} />
       </Routes>
     </Router>
+    </Provider>
   );
 };
 export default App;
