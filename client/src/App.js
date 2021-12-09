@@ -9,13 +9,20 @@ import Alert from './components/layout/Alert';
 //Redux
 import {Provider} from 'react-redux';
 import store from './store';
+import { loadUser } from './actions/auth';
 
 import './App.css';
+import setAuthToken from './utils/setAuthToken';
 
 //Added comment from my own clone
+if(localStorage.token){
+  setAuthToken(localStorage.token);
+}
 
 const App = () => {
-  useEffect(() => {});
+  useEffect(() => {
+    store.dispatch(loadUser());
+  },[]);
   return (
     <Provider store={store}>
     <Router>
