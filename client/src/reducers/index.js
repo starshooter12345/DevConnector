@@ -4,12 +4,26 @@ export default combineReducers({
     alert
 
 });*/
-import { combineReducers } from 'redux';
+/*import { combineReducers } from 'redux';
 import alert from './alert';
 import auth from './auth';
+import profile from './profile'
 
 export default combineReducers({
   alert,
-  auth
+  auth,
+  profile
   
+});*/
+
+import { combineReducers } from 'redux';
+import alert from './alert';
+import auth from './auth';
+import profile from './profile';
+
+
+export default combineReducers({
+  alert,
+  auth,
+  profile
 });
