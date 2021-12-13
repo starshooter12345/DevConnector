@@ -7,6 +7,7 @@ import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
 import PrivateRoute from './components/routing/PrivateRoute';
+import CreateProfile from './components/profile-forms/CreateProfile';
 import {  LOGOUT } from './actions/types';
 
 //Redux
@@ -39,6 +40,7 @@ const App = () => {
         <Route path='register' element={<Register />} />
         <Route path='login' element={<Login />} />
         <Route path ="dashboard" element = {<PrivateRoute component = {Dashboard}/>}/>
+        <Route path = 'create-profile' element = {<PrivateRoute component = {CreateProfile} />}/>
       </Routes>
     </Router>
     </Provider>
