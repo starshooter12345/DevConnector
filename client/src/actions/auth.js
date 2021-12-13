@@ -102,7 +102,10 @@ export const login = (email, password) => async dispatch => {
 
 //Logout user
 export const logout = () => dispatch => {
+    
     dispatch({type:LOGOUT});
+   
+   
 }
 
 
