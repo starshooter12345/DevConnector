@@ -9,6 +9,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import PrivateRoute from './components/routing/PrivateRoute';
 import CreateProfile from './components/profile-forms/CreateProfile';
 import EditProfile from './components/profile-forms/EditProfile';
+import AddExperience from './components/profile-forms/AddExperience';
 import {  LOGOUT } from './actions/types';
 
 //Redux
@@ -43,6 +44,10 @@ const App = () => {
         <Route path ="dashboard" element = {<PrivateRoute component = {Dashboard}/>}/>
         <Route path = 'create-profile' element = {<PrivateRoute component = {CreateProfile} />}/>
         <Route path = 'edit-profile' element = {<PrivateRoute component = {EditProfile} />}/>
+        <Route
+            path="add-experience"
+            element={<PrivateRoute component={AddExperience} />}
+          />
       </Routes>
     </Router>
     </Provider>
