@@ -1,7 +1,6 @@
 /*import React, { useEffect  } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
-
 import { getCurrentProfile } from '../../actions/profile';*/
 
 
@@ -11,13 +10,10 @@ import { getCurrentProfile } from '../../actions/profile';*/
 /*const Dashboard = ({
     getCurrentProfile,
     auth: {user},
-
 })=>{
     useEffect(() => {
         getCurrentProfile();
     },[getCurrentProfile]);
-
-
     return (
         <div>
             <br/><br/>
@@ -49,27 +45,20 @@ import { getCurrentProfile } from '../../actions/profile';*/
       </p>
     </section>
     )
-
-
      
         
     
   };
   
-
 Dashboard.propTypes = {
     getCurrentProfile: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     profile:PropTypes.object.isRequired
-
 }
-
 const mapStateToProps = state => ({
     auth:state.auth,
     profile:state.profile,
-
 })
-
 export default connect(mapStateToProps, { getCurrentProfile }) (Dashboard);*/
 
 import React, {Fragment, useEffect } from 'react';
@@ -79,11 +68,12 @@ import { connect } from 'react-redux';
 import DashboardActions from './DashboardActions';
 
 import { getCurrentProfile } from '../../actions/profile';
+import Experience from './Experience';
+import Education from './Education';
 
 
 /*const Dashboard = ({
   getCurrentProfile,
-
   auth: { user },
   profile: { profile }
 }) => {
@@ -107,7 +97,12 @@ import { getCurrentProfile } from '../../actions/profile';
         <i className="fas fa-user" /> Welcome {user && user.name}
       </p>
       {profile !== null ? (
-        <Fragment> <DashboardActions/> </Fragment>
+        <Fragment> <DashboardActions/>
+        <Experience experience={profile.experience}/>
+        <Education education={profile.education}/>
+       
+        
+         </Fragment>
       ):(
 
         <Fragment>
@@ -121,16 +116,13 @@ import { getCurrentProfile } from '../../actions/profile';
 
 /*Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
-
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired
 };
-
 const mapStateToProps = (state) => ({
   auth: state.auth,
   profile: state.profile
 });
-
 export default connect(mapStateToProps, { getCurrentProfile })(
   Dashboard
 );*/
