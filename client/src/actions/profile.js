@@ -63,7 +63,7 @@ export const getProfiles = () => async (dispatch) => {
     dispatch({
       type: GET_PROFILES,
       payload: res.data
-    });
+    })
   } catch (err) {
     dispatch({
       type: PROFILE_ERROR,
@@ -101,7 +101,7 @@ export const getGithubRepos = (username) => async (dispatch) => {
     dispatch({
       type: GET_REPOS,
       payload: res.data
-    });
+    })
   } catch (err) {
     dispatch({
       type: NO_REPOS
