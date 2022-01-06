@@ -120,7 +120,6 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
         </Fragment>
       )}
     </section>
-
   );
 };
 
