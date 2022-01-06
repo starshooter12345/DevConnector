@@ -73,12 +73,14 @@ export const getProfiles = () => async (dispatch) => {
 };
 
 //Get profile by ID
-export const getProfileById = (userId) => async (dispatch) => {
+
+ /*export const getProfileById = (userId) => async (dispatch) => {
   
 
   try{
-      const res = await axios.get(`/profile/user/${userId}`);
-
+     // const res = await axios.get('/api/profile/user/${userId}');
+    //  `/api/profile/experience/${id}`
+      const res = await axios.get(`/api/profile/user/${userId}`);
       dispatch({
           type:GET_PROFILE,
           payload: res.data
@@ -91,7 +93,61 @@ export const getProfileById = (userId) => async (dispatch) => {
       })
 
   }
-}
+}*/
+
+//BEST manually typed
+//Get profile by ID
+/*
+export const getProfileById = (userId) => async(dispatch)=>{
+  try{
+    const res = await axios.get(`/api/profile/user/${userId}`);
+    
+    dispatch({
+      type:GET_PROFILE,
+      payload: res.data
+    })
+  }catch(err){
+    dispatch({
+      type: PROFILE_ERROR,
+      payload:{ msg : err.response.statusText, status: err.response.status }
+    })
+  }
+}*/
+
+// Get profile by ID
+export const getProfileById = (userId) => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/profile/user/${userId}`);
+
+    dispatch({
+      type: GET_PROFILE,
+      payload: res.data
+    });
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+//Get profile by ID
+// Get profile by ID
+ /*export const getProfileById = (userId) => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/profile/user/${userId}`);
+
+    dispatch({
+      type: GET_PROFILE,
+      payload: res.data
+    });
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};*/
 
 //Get Github repos
 export const getGithubRepos = (username) => async (dispatch) => {

@@ -4,18 +4,68 @@ import Spinner from '../layout/Spinner'
 import PropTypes from 'prop-types'
 import { getProfileById } from '../../actions/profile'
 import { Link, useParams } from 'react-router-dom';*/
+//BEST Manually typed
+/*
+import React, { Fragment, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { Link, useParams } from 'react-router-dom'
+import { connect } from 'react-redux';
+import Spinner from '../layout/Spinner';
+import ProfileTop from './ProfileTop'
+import ProfileAbout from './ProfileAbout'
+import ProfileExperience from './ProfileExperience'
+import ProfileGthub from './ProfileExp'
+import ProfileEducation from './ProfileExperience'
+import { getProfileById } from '../../actions/profile';*/
 
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link, useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
-import ProfileTop from './ProfileTop'
-import ProfileAbout from './ProfileAbout'
-import ProfileExperience from './ProfileExperience'
+import ProfileTop from './ProfileTop';
+import ProfileAbout from './ProfileAbout';
+import ProfileExperience from './ProfileExperience';
+import ProfileEducation from './ProfileEducation';
+import ProfileGithub from './ProfileGithub';
 import { getProfileById } from '../../actions/profile';
 
-//best manually typed
+//BEST manually typed
+/*const Profile = ({ getProfileById, profile: { profile }, auth }) => {
+  const { id } = useParams();
+  useEffect(() => {
+    getProfileById(id);
+  }, [getProfileById, id]);
+
+  return (
+    <section className="container">
+      {profile === null ? (
+        <Spinner />
+      ) : (
+        <Fragment>
+           <Link to="/profiles" className="btn btn-light">
+            Back To Profiles
+          </Link>
+          {auth.isAuthenticated &&
+            auth.loading === false &&
+            auth.user._id === profile.user._id && (
+              <Link to="/edit-profile" className="btn btn-dark">
+                Edit Profile
+              </Link>
+            )}
+
+            <div className="profile-grid my-1">
+              <ProfileTop profile={profile} />
+              <ProfileAbout profile={profile}/>
+              <div className="profile-exp bg-white p-2">
+                
+              </div>
+              </div>
+          </Fragment>    
+      )}
+    </section>
+  );
+};*/
 
 const Profile = ({ getProfileById, profile: { profile }, auth }) => {
   const { id } = useParams();
@@ -39,30 +89,53 @@ const Profile = ({ getProfileById, profile: { profile }, auth }) => {
                 Edit Profile
               </Link>
             )}
-
-            <div className="profile-grid my-1">
-              <ProfileTop profile={profile} />
-              <ProfileAbout profile={profile}/>
-              <div className="profile-exp bg-white p-2">
-                <h2 className="text-primary">Experience</h2>
-                {profile.experience.length > 0 ? (
-                  <Fragment>  
-                {profile.experience.map((experience) => (
-                  <ProfileExperience key={experience._id} experience={experience}/>
-                ))}
+          <div className="profile-grid my-1">
+            <ProfileTop profile={profile} />
+            <ProfileAbout profile={profile} />
+            <div className="profile-exp bg-white p-2">
+              <h2 className="text-primary">Experience</h2>
+              {profile.experience.length > 0 ? (
+                <Fragment>
+                  {profile.experience.map((experience) => (
+                    <ProfileExperience
+                      key={experience._id}
+                      experience={experience}
+                    />
+                  ))}
                 </Fragment>
-                ) : (
-                  <h4>No experience credentials</h4>
-                )}
-              </div>
-              </div>
-          </Fragment>    
+              ) : (
+                <h4>No experience credentials</h4>
+              )}
+            </div>
+
+            <div className="profile-edu bg-white p-2">
+              <h2 className="text-primary">Education</h2>
+              {profile.education.length > 0 ? (
+                <Fragment>
+                  {profile.education.map((education) => (
+                    <ProfileEducation
+                      key={education._id}
+                      education={education}
+                    />
+                  ))}
+                </Fragment>
+              ) : (
+                <h4>No education credentials</h4>
+              )}
+            </div>
+
+            {profile.githubusername && (
+              <ProfileGithub username={profile.githubusername} />
+            )}
+          </div>
+        </Fragment>
       )}
     </section>
   );
 };
 
-
+//BEST manuall typed
+/*
 Profile.propTypes = {
   getProfileById: PropTypes.func.isRequired,
   profile:PropTypes.object.isRequired,
@@ -74,7 +147,20 @@ const mapStateToProps = state => ({
   auth:state.auth
 })
 
-export default connect(mapStateToProps, {getProfileById})(Profile)
+export default connect(mapStateToProps, {getProfileById})(Profile)*/
+
+Profile.propTypes = {
+  getProfileById: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => ({
+  profile: state.profile,
+  auth: state.auth
+});
+
+export default connect(mapStateToProps, { getProfileById })(Profile);
 
 
 
