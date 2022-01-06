@@ -32,6 +32,8 @@ import { getProfileById } from '../../actions/profile';
     )
 }*/
 
+/*
+//manually typed
 const Profile = ({ getProfileById, profile: { profile }, auth}) => {
   const { id } = useParams();
 
@@ -44,7 +46,7 @@ const Profile = ({ getProfileById, profile: { profile }, auth}) => {
       <section className="container">
         {profile === null  ? (
           <Spinner />
-        ): (
+        ) : (
           <Fragment>
             <Link to="/profiles" className="btn btn-light">
               Back To Profiles
@@ -62,7 +64,36 @@ const Profile = ({ getProfileById, profile: { profile }, auth}) => {
       </section>
     )
     
-}
+}*/
+
+const Profile = ({ getProfileById, profile: { profile }, auth }) => {
+  const { id } = useParams();
+  useEffect(() => {
+    getProfileById(id);
+  }, [getProfileById, id]);
+
+  return (
+    <section className="container">
+      {profile === null ? (
+        <Spinner />
+      ) : (
+        <Fragment>
+          <Link to="/profiles" className="btn btn-light">
+            Back To Profiles
+          </Link>
+          {auth.isAuthenticated &&
+            auth.loading === false &&
+            auth.user._id === profile.user._id && (
+              <Link to="/edit-profile" className="btn btn-dark">
+                Edit Profile
+              </Link>
+            )}
+          
+                </Fragment>    
+      )}
+    </section>
+  );
+};
 
 /*
 const Profile = ({ getProfileById, profile: { profile }, auth }) => {
