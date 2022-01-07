@@ -111,6 +111,8 @@ const App = () => {
         <Route path='login' element={<Login />} />
         <Route path="profiles" element={<Profiles />} />
         <Route path="profile/:id" element={<Profile />} />
+        <Route path="posts" element={<PrivateRoute component={Posts}/>}/>
+        <Route path="posts/:id" element={<PrivateRoute component={Post}/>}/>
         <Route path ="dashboard" element = {<PrivateRoute component = {Dashboard}/>}/>
         <Route path = 'create-profile' element = {<PrivateRoute component = {CreateProfile} />}/>
         <Route path = 'edit-profile' element = {<PrivateRoute component = {EditProfile} />}/>
@@ -122,8 +124,6 @@ const App = () => {
             path="add-education"
             element={<PrivateRoute component={AddEducation} />}
           />
-          <Route path="posts" element={<PrivateRoute component={Posts} />} />
-          <Route path="posts/:id" element={<PrivateRoute component={Post} />} />
       </Routes>
     </Router>
     </Provider>
